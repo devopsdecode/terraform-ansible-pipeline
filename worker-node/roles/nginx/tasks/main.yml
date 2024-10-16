@@ -1,0 +1,16 @@
+---
+- name: install nginx webserver
+  apt:
+    name: nginx
+    state: latest
+
+- name: copy the index.html file and replace in nginx html
+  template: 
+    src: index.html
+    dest: /var/www/html/index.html 
+
+- name: Start the service
+  systemd:
+    state: started
+    name: nginx
+    enabled: yes

@@ -1,0 +1,11 @@
+---
+- name: Nginx setup
+  hosts: all
+  vars:
+    ansible_ssh_extra_args: '-o StrictHostKeyChecking=no'    
+  remote_user: ubuntu
+  become: yes
+
+  roles:
+  - nginx
+  
